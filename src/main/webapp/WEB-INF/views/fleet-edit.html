@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Core CSS - Include with every page -->
+<link type="text/css" rel="stylesheet"
+	href="../../resources/css/bootstrap-3.1.1.min.css"
+	data-th-href="@{/resources/css/bootstrap-3.1.1.min.css}" />
+
+<link type="text/css" rel="stylesheet"
+	href="../../resources/font-awesome/css/font-awesome.css"
+	data-th-href="@{/resources/font-awesome/css/font-awesome.css}" />
+
+<!-- SB Admin CSS - Include with every page -->
+<link type="text/css" rel="stylesheet"
+	href="../../resources/css/sb-admin.css"
+	data-th-href="@{/resources/css/sb-admin.css}" />
+
+<style>
+.no-border-on-me>thead>tr>th,.no-border-on-me>tbody>tr>th,.no-border-on-me>tfoot>tr>th,.no-border-on-me>thead>tr>td,.no-border-on-me>tbody>tr>td,.no-border-on-me>tfoot>tr>td
+	{
+	border-top-style: none;
+	border-bottom-style: none;
+}
+</style>
+<style>
+.dropdown-menu {
+	min-width: 0px;
+}
+</style>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        
+        	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+	
+	<!-- jQuery UI -->
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js" ></script>
+<script type="text/javascript"
+	src="../../resources/js/tabel/jquery-1.11.1.min.js"
+	data-th-src="@{/resources/js/tabel/jquery-1.11.1.min.js}"></script>
+<script type="text/javascript"
+	src="../../resources/js/tabel/jquery.dataTables.min.js"
+	data-th-src="@{/resources/js/tabel/jquery.dataTables.min.js}"></script>
+<script type="text/javascript"
+	src="../../resources/js/tabel/dataTables.bootstrap.js"
+	data-th-src="@{/resources/js/tabel/dataTables.bootstrap.js}"></script>
+
+<script type="text/javascript">
+function addBattlegroupe(type, id) {
+    var url = '/fleet/addBattlegroupe/';
+    if (type != '') {
+        url = url + type;
+        console.log(url);
+    }
+    
+    $("#resultsBlock").load(url);
+}
+</script>
+<title data-th-text="#{fleet.list.page.title}">Title</title>
+</head>
+
+<body>
+
+	<div id="wrapper">
+		<!-- /#wrapper -->
+
+		<div th:replace="${session.fragmenttop} :: top-nav"></div>
+		<div th:replace="${session.fragmentvert} :: vert-nav"></div>
+
+		<div id="page-wrapper">
+			<div class="row">
+			<form class="form-horizontal" action="#"
+						data-th-action="@{/fleet/edit}" data-th-object="${fleetDTO}"
+						method="post">
+						<div class="alert alert-success alert-dismissable"
+							th:if="${message != null}">
+							<button type="button" class="close" data-dismiss="alert"
+								aria-hidden="true">&times;</button>
+							<h4 data-th-text="${message}">Success!</h4>
+						</div>
+						
+				<div class="col-xs-12">
+													<div class="col-sm-7">
+										<input type="text" hidden="hidden" data-th-value="*{id}"
+											data-th-field="*{id}"></input>
+									</div>
+							<div class="form-group">
+								<div class="col-sm-7">
+									<button type="submit" class="btn btn-primary" name="action"
+										data-th-value="#{button.action.addFlag}"
+										data-th-text="#{button.label.addFlag}">addFlag</button>
+									<button type="submit" class="btn btn-primary" name="action"
+										data-th-value="#{button.action.addLine}"
+										data-th-text="#{button.label.addLine}">addLine</button>
+									<button type="submit" class="btn btn-primary" name="action"
+										data-th-value="#{button.action.addVanguard}"
+										data-th-text="#{button.label.addVanguard}">addVanguard</button>
+									<button type="submit" class="btn btn-primary" name="action"
+										data-th-value="#{button.action.addPathfinder}"
+										data-th-text="#{button.label.addPathfinder}">addPathfinder</button>
+									<button type="submit" class="btn btn-primary" name="action"
+										data-th-value="#{button.action.save}"
+										data-th-text="#{button.label.save}">Save</button>
+									<button type="submit" class="btn btn-default active"
+										name="action" data-th-value="#{button.action.cancel}"
+										data-th-text="#{button.label.cancel}">Cancel</button>
+								</div>
+							</div>
+				</div>
+				
+				<div id="resultsBlock">
+				<div class="col-xs-12">
+					<h4 class="page-header" data-th-text="#{fleet.list.flag.title}">Flag Battlegroupes</h4>
+					<div class="responsive">
+						<div th:each="flagBattlegroupe : *{flagBattlegroupes}">
+							<div class="col-xs-12">
+								<span>Test</span>
+							</div>
+						</div>
+					</div>
+					
+					<h4 class="page-header" data-th-text="#{fleet.list.line.title}">Line Battlegroupes</h4>
+					<div class="responsive">
+						<div th:each="lineBattlegroupe : *{lineBattlegroupes}">
+							<div class="col-xs-12">
+								<span>Test</span>
+							</div>
+						</div>
+					</div>
+					<h4 class="page-header" data-th-text="#{fleet.list.pathfinder.title}">Line Battlegroupes</h4>
+					<div class="responsive">
+						<div th:each="pathfinderBattlegroupe : *{pathfinderBattlegroupes}">
+							<div class="col-xs-12">
+								<span>Test</span>
+							</div>
+						</div>
+					</div>
+					<h4 class="page-header" data-th-text="#{fleet.list.vanguard.title}">Line Battlegroupes</h4>
+					<div class="responsive">
+						<div th:each="vanguardBattlegroupe : *{vanguardBattlegroupes}">
+							<div class="col-xs-12">
+								<span>Test</span>
+							</div>
+						</div>
+					</div>
+					<br />
+					<div class="alert alert-danger alert-dismissable"
+						th:if="${error != null}">
+						<button type="button" class="close" data-dismiss="alert"
+							aria-hidden="true">&times;</button>
+						<h4 data-th-text="${error}">Error!</h4>
+					</div>
+					<div class="alert alert-success alert-dismissable"
+						th:if="${message != null}">
+						<button type="button" class="close" data-dismiss="alert"
+							aria-hidden="true">&times;</button>
+						<h4 data-th-text="${message}">Success!</h4>
+					</div>
+
+
+				</div>
+				<!-- /.col-lg-12 -->
+								</div> <!-- /.result-block -->
+								</form>
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- page wrapper -->
+		 <p style="text-align:center"> © 2016 Manuel Lorenz</p>
+	</div>
+	<!-- /#wrapper -->
+
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+	
+	<!-- jQuery UI -->
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js" ></script>
+	
+	<script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script type="text/javascript"
+		src="../../resources/js/bootstrap-3.1.1.min.js"
+		data-th-src="@{/resources/js/bootstrap-3.1.1.min.js}"></script>
+
+	<!-- Core Scripts - Include with every page -->
+	<script type="text/javascript"
+		src="../../resources/js/plugins/metisMenu/jquery.metisMenu.js"
+		data-th-src="@{/resources/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+
+	<!-- SB Admin Scripts - Include with every page -->
+	<script type="text/javascript" src="../../resources/js/sb-admin.js"
+		data-th-src="@{/resources/js/sb-admin.js}"></script>
+</body>
+</html>

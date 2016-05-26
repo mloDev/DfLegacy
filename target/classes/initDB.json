@@ -1,0 +1,126 @@
+[{
+	"_class": "de.mlo.model.GameSize",
+	"name": "Battle",
+	"pathfinderSize": "3",
+	"vanguardSize": 3,
+	"lineSize": 4,
+	"flagSize": 2,
+	"maxPoints": 2500,
+	"battlegroupMax": 7
+}, {
+	"_class": "de.mlo.model.GameSize",
+	"name": "Clash",
+	"pathfinderSize": "2",
+	"vanguardSize": 2,
+	"lineSize": 3,
+	"flagSize": 1,
+	"maxPoints": 2000,
+	"battlegroupMax": 6
+}, {
+	"_class": "de.mlo.model.GameSize",
+	"name": "Skirmish",
+	"pathfinderSize": 2,
+	"vanguardSize": 1,
+	"lineSize": 2,
+	"flagSize": 0,
+	"maxPoints": 1500,
+	"battlegroupMax": 5
+}, {
+	"_class": "de.mlo.model.LightShip",
+	"name": "Generic UCM LightShip",
+	"scan": 6,
+	"sig": 1,
+	"thrust": 2,
+	"hull": 0,
+	"a": 1500,
+	"pd": 5,
+	"g":"1-4",
+	"t":"L",
+	"faction":"UCM",
+	"pts":125,
+	"factionLogoURL":"ucm_25.jpg"
+	
+}, {
+	"_class": "de.mlo.model.LineBattlegroupe",
+	"name": "Line Battlegroupe",
+	"lightShipSize": 6,
+	"mediumShipSize": 1,
+	"heavyShipSize": 2,
+	"superHeavyShipSize": 0,
+	"maxShips": 15
+}, {
+	"_class": "de.mlo.model.LightShip",
+	"name": "Generic PHR LightShip",
+	"scan": 6,
+	"sig": 1,
+	"thrust": 2,
+	"hull": 0,
+	"a": 1500,
+	"pd": 5,
+	"g":"1-4",
+	"t":"L",
+	"faction":"PHR",
+	"pts":125,
+	"factionLogoURL":"phr_25.jpg"
+	
+}, {
+	"_class": "de.mlo.model.MediumShip",
+	"name": "Generic PHR MediumShip",
+	"scan": 6,
+	"sig": 1,
+	"thrust": 2,
+	"hull": 0,
+	"a": 1500,
+	"pd": 5,
+	"g":"1-4",
+	"t":"L",
+	"faction":"PHR",
+	"pts":250,
+	"factionLogoURL":"phr_25.jpg"
+	
+}, {
+	"_class": "de.mlo.model.HeavyShip",
+	"name": "Generic Shaltari HeavyShip",
+	"scan": 6,
+	"sig": 1,
+	"thrust": 2,
+	"hull": 0,
+	"a": 1500,
+	"pd": 5,
+	"g":"1-4",
+	"t":"L",
+	"faction":"SHALTARI",
+	"pts":375,
+	"factionLogoURL":"shaltari_25.jpg"
+	
+}, {
+	"_class": "de.mlo.model.SuperHeavyShip",
+	"name": "Generic UCM SuperHeavyShip",
+	"scan": 6,
+	"sig": 1,
+	"thrust": 2,
+	"hull": 0,
+	"a": 1500,
+	"pd": 5,
+	"g":"1-4",
+	"t":"L",
+	"faction":"UCM",
+	"pts":500,
+	"factionLogoURL":"ucm_25.jpg"
+	
+}, {
+	"_class": "de.mlo.model.LightShip",
+	"name": "Generic Scourge LightShip",
+	"scan": 6,
+	"sig": 1,
+	"thrust": 2,
+	"hull": 0,
+	"a": 1500,
+	"pd": 5,
+	"g":"1-4",
+	"t":"L",
+	"faction":"SCOURGE",
+	"pts":125,
+	"factionLogoURL":"scourge_25.jpg"
+	
+}]
